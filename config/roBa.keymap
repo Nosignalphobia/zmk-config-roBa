@@ -1,8 +1,8 @@
+#include <input/processors.dtsi>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <input/processors.dtsi>
 
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 80
 
@@ -88,15 +88,13 @@
     };
 
     // 1. マウスクリック（キーコード &mkp）に連動させる設定
-&mkp_input_listener {
-    input-processors = <&zip_temp_layer 4 400>; 
-};
 
-// 2. トラックボールの動きに連動させる設定
-// ※roBaのトラックボール側（通常は右手側: trackball_listener または tb_right_listener）に適用します
-&trackball_listener {
-    input-processors = <&zip_temp_layer 4 400>;
-};
+    &mkp_input_listener { input-processors = <&zip_temp_layer 4 400>; };
+
+    // 2. トラックボールの動きに連動させる設定
+    // ※roBaのトラックボール側（通常は右手側: trackball_listener または tb_right_listener）に適用します
+
+    &trackball_listener { input-processors = <&zip_temp_layer 4 400>; };
 
     keymap {
         compatible = "zmk,keymap";
@@ -145,10 +143,10 @@
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB4  &trans    &mkp MB5  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                &trans
+&trans  &trans  &trans  &trans  &trans                      &trans  &trans    &kp QMARK  &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB1  &mkp MB3   &mkp MB2  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB4  &trans     &mkp MB5  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                 &trans
             >;
         };
 
