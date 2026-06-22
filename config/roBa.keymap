@@ -87,16 +87,6 @@
         };
     };
 
-    // 1. マウスクリック（キーコード &mkp）に連動させる設定
-&mkp_input_listener {
-    input-processors = <&zip_temp_layer 4 400>; 
-};
-
-// 2. トラックボールの動きに連動させる設定
-// ※roBaのトラックボール側（通常は右手側: trackball_listener または tb_right_listener）に適用します
-&trackball_listener {
-    input-processors = <&zip_temp_layer 4 400>;
-};
 
     keymap {
         compatible = "zmk,keymap";
@@ -170,4 +160,15 @@
             >;
         };
     };
+};
+
+    // 1. マウスクリック（キーコード &mkp）に連動させる設定
+&mkp_input_listener {
+    input-processors = <&zip_temp_layer 4 400>; 
+};
+
+// 2. トラックボールの動きに連動させる設定
+// ※roBaのトラックボール側（通常は右手側: trackball_listener または tb_right_listener）に適用します
+&trackball_listener {
+    input-processors = <&zip_temp_layer 4 400>;
 };
